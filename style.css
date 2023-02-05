@@ -1,11 +1,23 @@
+@import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+
+*{
+    font-family: 'Galmuri11';
+}
+
+main{
+    height: 100vh;
+    min-width: 1000px;
+    min-height: 500px;
+    padding: 30px;
+}
 .hidden{
     display: none;
 }
 
 .bgimage {
-    position:absolute;
-    width:100%;
-    height:100%;
+    position:fixed;
+    width:100vw;
+    height:100vh;
     left: 0px;
     top: 0px;
     right:0px;
@@ -15,43 +27,255 @@
     object-fit: cover;
 }
 
-/* header */
-.playlist-box{
-    height: 50px;
+/* 헤더 */
+header{
     display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+    justify-content: center;
 }
-.playlist-btn{
-    background-color: #820024;
-    margin: 5px;
-    text-align: center;
+header>span:first-child{
+    border: #800020 solid 1px;
+    background-color: rgba(245,245,245,50%);
+    width: 250px;
+    margin: 0px 10px;
+    padding: 0px 5px;
+}
+.playlist>span{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+#playlist__title{
+    margin: 0;
+    animation: move 10s linear infinite;
+}
+@keyframes move {
+    from {
+      transform: translateX(180%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+header button{
+    all:unset;
     cursor: pointer;
-    width: 30%;
+}
+header #btn__play>img{
+    animation: 2s linear infinite playing;
 }
 
-/* main */
-main{
+@keyframes 
+playing {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* 가운데 */
+.center{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    border: rgba(245,245,245,50%) solid 3px;
+    background-color: rgba(128, 0, 32, 30%);
+    border-radius: 20px;
+    height: 100vh;
+    width: 35%;
 }
-#login-form{
-    margin: 20px;
+.center>span:first-child{
+    display: flex;
+    align-items: center;
+    font-family: 'Galmuri11';
+    font-weight: 700;
+    font-size: 30px;
+    height: 80px;
+    margin: 7px;
+}
+
+.center *:nth-child(2) input{ /* todo-form */
+    text-align: center;
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+}
+.center #todo-list{
+    padding: 5px;
+    max-height: 100%;
+    overflow-y: scroll;
+}
+.center #todo-list::-webkit-scrollbar{
+    display: none;
+}
+.center #todo-list li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+}
+.center #todo-list li::before{
+    content: "⚾";
+    flex-direction: column;
+}
+.center #todo-list li span{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+    height: 40px;
+    width: 100%;
+}
+.center #todo-list button{
+    all:unset;
+    cursor: pointer;
+}
+
+/* 좌측 */
+main{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+.left{
+    width: 40%;
+    height: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.profile{
+    display: flex;
+    height: 30px;
+}
+.profile span:first-child{
+    display: flex;
+    align-items: center;
+    font-family: 'Galmuri11';
+    font-weight: 700;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.profile #login-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    font-size: 20px;
+}
+.profile #login-form input{
+    border: #820024 solid 2px;
+    height: 30px;
+}
+.profile #login-form input:first-child{
+    border: #820024 solid 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
+    width: 100%;
+    margin-right: 0px;
+}
+.profile #login-form input:last-child{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #820024;
+    color: white;
+    height: 35px;
+    cursor: pointer;
+}
+.now{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+.now #now__time{
+    font-family: 'Galmuri11';
+    font-weight: 700;
+    font-size: 50px;
+}
+.now #now__weather{
+    display: flex;
+    align-items: center;
+}
+.quote{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: rgba(245,245,245,50%) solid 2px;
+    background-color: rgba(128, 0, 32, 30%);
+    border-radius: 15px;
+    margin: 0px 10px;
+    height: 7%;
     padding: 10px;
-    background-color: red;
 }
-#clock{
-    margin: 10px;
-    font-size: 300%;
+.quote span:first-child{
+    font-size: 20px;
+    margin-bottom: 5px;
 }
-#todo-form{
-    margin-bottom: 20px;
+.quote span:last-child{
+    font-size: 5px;
 }
-#quote{
-    margin-bottom:7px;
+.baseball{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 10px;
+    background-color: rgba(245,245,245,20%);
+    border: #800020 solid 2px;
+    border-radius: 10px;
+    font-family: 'Galmuri11';
+    font-weight: 700;
+    padding: 2px;
+    height: 50%;
 }
-#todo-list{
-    
+.baseball span:first-child{
+    display: inherit;
+    color: #800020;
+    margin: 5px;
+}
+
+/* 우측 */
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: rgba(245,245,245,50%) solid 2px;
+    background-color: rgba(128, 0, 32, 30%);
+    border-radius: 20px;
+    text-align: center;
+    height: 100vh;
+    width: 20%;
+}
+.right p:first-child{
+    height: 5%;
+    margin: 15px;
+}
+.right p:nth-child(2){
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Galmuri11';
+    font-weight: 700;
+}
+.right p:nth-child(3),
+.right p:nth-child(5){
+    margin: 0;
+    font-size: 50px;
+    font-family: 'Galmuri11';
+    font-weight: 700;
+}
+.right>img{
+    margin: 25px;
+    max-height: 400px;
+    min-height: 80px;
+    border: rgba(245,245,245,50%) solid 3px;
+    border-radius: 8px;
 }
