@@ -6,7 +6,7 @@ function getClock() {
   const dday = Math.round((playBall - date) / (1000 * 60 * 60 * 24));
   const days = String(dday).padStart(2, "0");
 
-  if(days>0)
+  if(dday>0)
     clockTitle.innerText = `-${days}`;
   else
     clockTitle.innerText = `+${days}`;
